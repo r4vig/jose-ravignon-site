@@ -6,7 +6,7 @@
   <title>José Ravignon · Développement web &amp; applications sur mesure</title>
   <meta name="description" content="Développeur et designer web indépendant en Seine-et-Marne et Île-de-France : sites vitrines, boutiques en ligne et applications sur mesure, conçus pour votre activité.">
   <meta name="author" content="José Ravignon">
-  <meta name="theme-color" content="#1B1D27">
+  <meta name="theme-color" content="#13141C">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="José Ravignon · Développement web &amp; applications sur mesure">
@@ -15,134 +15,240 @@
   <link rel="preload" href="assets/fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jetbrains-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
+<!--
+  THESIS: le site est l'éditeur de José : on voit un projet s'écrire puis prendre forme, au lieu d'une grille de cartes « services » de plus.
+  OWN-WORLD: nuit bleutée #1A1C26, ambre #F5C28B en signal, couleurs de coloration syntaxique (violet, sarcelle, rose) ; onglets d'éditeur, fenêtres, barre d'état ; Manrope 800 en titrage, JetBrains Mono réservée au code.
+  STORY: le visiteur comprend « sur mesure » en voyant son type de projet s'écrire puis s'afficher, se rassure (un seul interlocuteur, méthode, réponses), puis appelle ou écrit.
+  FIRST VIEWPORT: titre géant sur toute la largeur ; dessous, l'accroche et les deux boutons à gauche, à droite l'éditeur projet.js dont les onglets (vitrine, boutique, application) réécrivent le code et l'aperçu qui le chevauche.
+  FORM: refonte dans le monde existant « éditeur de code », confirmé par l'utilisateur le 2026-10-22 (pas de tirage de direction).
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-devices" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="14" height="10" rx="1.8"/><path d="M6 18.5h7"/><rect x="17" y="9" width="4.5" height="10.5" rx="1.2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M13.5 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8.5z"/><path d="M13.5 3.5v5h5"/><path d="M8.5 16l2.5-3 2 2 2.5-3.5"/></symbol>
+  <symbol id="i-export" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v3A2 2 0 0 0 6.5 20.5h11a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16.5V11a5.5 5.5 0 0 1 11 0v5.5l1.5 1.5H5z"/><path d="M10 20.5h4"/></symbol>
+  <symbol id="i-grow" viewBox="0 0 24 24"><path d="M4 19.5h16"/><path d="M6 15.5l4.5-4.5 3 3L19 8.5"/><path d="M15 8.5h4v4"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4.5 19.5l1-4.5L15.8 4.7a2 2 0 0 1 2.9 0l.6.6a2 2 0 0 1 0 2.9L9 18.5z"/><path d="M13.5 7l3.5 3.5"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="6.5" rx="1.6"/><rect x="3.5" y="13.5" width="17" height="6.5" rx="1.6"/><path d="M7 7.2h.01M7 16.7h.01M11 7.2h6M11 16.7h6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.8l2.6-.3 1.6 4.1-2 1.4a11 11 0 0 0 6.2 6.2l1.4-2 4.1 1.6-.3 2.6a2 2 0 0 1-2.2 1.8C10.5 18.6 5.4 13.5 4.8 6a2 2 0 0 1 1.8-2.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7l8.2 6.2L20.2 7"/></symbol>
+</svg>
+
 <a class="skip" href="#contenu">Aller au contenu</a>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap bar">
     <a class="brand" href="#top" aria-label="José Ravignon, retour en haut de page"><span class="dot" aria-hidden="true"></span>josé-ravignon.js</a>
-    <nav aria-label="Navigation principale">
+    <nav class="nav" aria-label="Navigation principale">
       <ul class="tabs">
-        <li><a href="#approche">approche</a></li>
-        <li><a href="#sites">sites</a></li>
-        <li><a href="#applications">applications</a></li>
-        <li><a href="#methode">méthode</a></li>
-        <li><a href="#questions">questions</a></li>
-        <li><a class="cta" href="#contact">contact</a></li>
+        <li><a href="#approche" style="--c:var(--purple)">approche</a></li>
+        <li><a href="#projets" style="--c:var(--pink)">projets</a></li>
+        <li><a href="#sites" style="--c:var(--teal)">sites</a></li>
+        <li><a href="#applications" style="--c:var(--amber)">applications</a></li>
+        <li><a href="#methode" style="--c:var(--purple)">méthode</a></li>
+        <li><a href="#questions" style="--c:var(--teal)">questions</a></li>
       </ul>
     </nav>
+    <a class="cta" href="#contact">Me contacter</a>
   </div>
 </header>
 
 <main id="contenu">
 
   <!-- ============ HERO ============ -->
-  <section class="hero dark" id="top">
+  <section class="hero" id="top" data-file="projet.js">
     <div class="wrap">
-      <div>
-        <p class="comment">// développeur &amp; designer web indépendant</p>
-        <h1>Développement web &amp; applications <em>sur mesure.</em></h1>
-        <p class="lead">Des sites et des outils pensés pour votre activité, pas l'inverse. Du premier échange à la mise en ligne, avec un seul interlocuteur.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#contact">Parlons de votre projet</a>
-          <a class="btn btn-ghost" href="#approche">Découvrir l'approche</a>
+      <h1>Développement web &amp; applications <em>sur&nbsp;mesure.</em></h1>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="lead">Des sites et des outils pensés pour votre activité, pas l'inverse. Du premier échange à la mise en ligne, avec un seul interlocuteur.</p>
+          <p class="who"><span class="avatar" aria-hidden="true">JR</span><span><strong>José Ravignon</strong><br>développeur &amp; designer web indépendant · Seine-et-Marne</span></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Parlons de votre projet <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#approche">Découvrir l'approche</a>
+          </div>
+        </div>
+
+        <div class="stage">
+          <figure class="editor editor-hero">
+            <div class="editor-tabs" role="tablist" aria-label="Choisir un type de projet">
+              <button type="button" role="tab" id="t-vitrine" aria-selected="true" aria-controls="apercu" data-projet="vitrine">vitrine.js</button>
+              <button type="button" role="tab" id="t-boutique" aria-selected="false" aria-controls="apercu" data-projet="boutique" tabindex="-1">boutique.js</button>
+              <button type="button" role="tab" id="t-application" aria-selected="false" aria-controls="apercu" data-projet="application" tabindex="-1">application.js</button>
+            </div>
+            <pre aria-hidden="true"><code><span class="l"><span class="k">const</span> projet = {</span><span class="l">  <span class="p">type</span>: <span class="s">"<span data-k="type">site vitrine</span>"</span>,</span><span class="l">  <span class="p">objectif</span>: <span class="s">"<span data-k="objectif">être trouvé et contacté</span>"</span>,</span><span class="l">  <span class="p">technologie</span>: <span class="s">"<span data-k="technologie">adaptée au besoin</span>"</span>,</span><span class="l">  <span class="p">évolutif</span>: <span class="x">true</span>,</span><span class="l">  <span class="p">limites</span>: <span class="x">null</span>, <span class="c">// aucune</span></span><span class="l">};</span></code></pre>
+          </figure>
+
+          <figure class="preview" id="apercu" role="tabpanel" aria-labelledby="t-vitrine" aria-live="polite">
+            <div class="preview-bar" aria-hidden="true">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="url"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg><span data-k="url">votre-site.fr</span></span>
+            </div>
+            <div class="preview-body" data-show="vitrine">
+              <div class="mock mock-vitrine" aria-hidden="true">
+                <div class="m-nav"><b></b><i></i><i></i><i></i></div>
+                <div class="m-hero"><div><span class="m-h"></span><span class="m-h short"></span><span class="m-t"></span><span class="m-t"></span><span class="m-btn"></span></div><div class="m-pic"></div></div>
+                <div class="m-row"><span></span><span></span><span></span></div>
+              </div>
+              <div class="mock mock-boutique" aria-hidden="true">
+                <div class="m-nav"><b></b><i></i><i></i><span class="m-cart">2</span></div>
+                <div class="m-shop">
+                  <div class="m-prod"><span class="m-img" style="--t:var(--teal)"></span><i></i><b></b></div>
+                  <div class="m-prod"><span class="m-img" style="--t:var(--purple)"></span><i></i><b></b></div>
+                  <div class="m-prod"><span class="m-img" style="--t:var(--pink)"></span><i></i><b></b></div>
+                </div>
+                <span class="m-btn wide"></span>
+              </div>
+              <div class="mock mock-application" aria-hidden="true">
+                <div class="m-side"><b></b><i class="on"></i><i></i><i></i><i></i></div>
+                <div class="m-main">
+                  <div class="m-bars"><i style="--h:45%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:85%"></i><i style="--h:65%"></i><i style="--h:95%"></i></div>
+                  <div class="m-table"><span><i></i><b class="ok"></b></span><span><i></i><b></b></span><span><i></i><b class="ok"></b></span></div>
+                </div>
+              </div>
+              <p class="visually-hidden" data-k="desc">Aperçu illustratif d'un site vitrine.</p>
+            </div>
+            <figcaption>aperçu illustratif</figcaption>
+          </figure>
         </div>
       </div>
-      <figure class="editor" aria-label="Extrait de code décoratif : un projet sur mesure, évolutif et sans limites">
-        <div class="editor-tabs" aria-hidden="true"><span class="on">projet.js</span><span>contact.js</span></div>
-        <pre tabindex="0"><code><span class="l"><span class="k">const</span> projet = {</span><span class="l">  <span class="p">site</span>: <span class="s">"sur mesure"</span>,</span><span class="l">  <span class="p">application</span>: <span class="s">"sur mesure"</span>,</span><span class="l">  <span class="p">technologie</span>: <span class="s">"adaptée au besoin"</span>,</span><span class="l">  <span class="p">évolutif</span>: <span class="x">true</span>,</span><span class="l">  <span class="p">limites</span>: <span class="x">None</span>,</span><span class="l">};</span></code></pre>
-      </figure>
     </div>
   </section>
 
   <!-- ============ APPROCHE ============ -->
-  <section id="approche">
-    <div class="wrap">
-      <p class="label">// 01 — approche</p>
-      <h2>Votre projet ne rentre pas dans une case&nbsp;? Tant mieux.</h2>
-      <p class="lead">Je conçois des sites web et des applications qui s'adaptent à votre façon de travailler, et pas l'inverse. Pas de modèle tout fait&nbsp;: on part de votre besoin, puis on choisit ensemble la solution la plus simple et la plus durable.</p>
-
-      <div class="grid g2">
-        <article class="card">
+  <section id="approche" data-file="approche.md">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2>Votre projet ne rentre pas dans une case&nbsp;? Tant mieux.</h2>
+        <p class="lead">Je conçois des sites web et des applications qui s'adaptent à votre façon de travailler, et pas l'inverse. Pas de modèle tout fait&nbsp;: on part de votre besoin, puis on choisit ensemble la solution la plus simple et la plus durable.</p>
+      </div>
+      <ul class="rows">
+        <li>
           <p class="fn">sur_mesure()</p>
           <h3>Conçu pour vous, pas copié-collé</h3>
           <p>Vos clients, vos produits, vos habitudes&nbsp;: le design et les fonctions partent de votre réalité, pas d'un modèle vendu à des centaines d'autres.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li>
           <p class="fn">flexible()</p>
           <h3>La technique s'adapte au projet</h3>
           <p>Shopify personnalisé ou développement de A à Z&nbsp;: l'outil se choisit selon votre besoin et votre budget. Et tout reste évolutif, au rythme de votre activité.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li>
           <p class="fn">accompagnement()</p>
           <h3>Un seul interlocuteur, de A à Z</h3>
           <p>La personne qui vous écoute est celle qui conçoit, développe et vous forme. Le projet avance par étapes validées ensemble&nbsp;: vous savez toujours où il en est.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li>
           <p class="fn">fiable_et_securise()</p>
           <h3>Solide, pas seulement joli</h3>
           <p>Technicien en data center au quotidien et formé à la cybersécurité&nbsp;: votre site est correctement hébergé, sécurisé et sauvegardé.</p>
-        </article>
-      </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="principle">
-        <p class="mono">// le principe</p>
-        <p>Si vous le gérez aujourd'hui sur papier, dans un tableau Excel ou dans trois outils différents, <em>on peut en faire une application.</em></p>
-      </div>
+  <!-- ============ PRINCIPE ============ -->
+  <section class="principle" aria-label="Le principe">
+    <div class="wrap">
+      <p>Si vous le gérez aujourd'hui sur papier, dans un tableau Excel ou dans trois outils différents, <em>on peut en faire une application.</em></p>
+    </div>
+  </section>
 
-      <h3 class="subhead">Exemples de projets</h3>
-      <div class="grid g3" style="margin-top:20px">
-        <article class="card">
-          <p class="fn">e-commerce</p>
-          <h3>Refonte d'une boutique en ligne</h3>
-          <p>Parfumerie parisienne&nbsp;: design sur mesure pour plus de 150 références, site multilingue, coffrets, click &amp; collect. <span class="tag-inline">Projet en cours.</span></p>
+  <!-- ============ PROJETS ============ -->
+  <section id="projets" data-file="projets.md">
+    <div class="wrap">
+      <h2>Exemples de projets</h2>
+      <div class="projects">
+        <article class="project project-lead">
+          <div class="window" aria-hidden="true">
+            <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="name">parfumerie · boutique</span></div>
+            <div class="art art-shop">
+              <div class="m-nav"><b></b><span class="langs"><em>FR</em><em>EN</em></span><span class="m-cart">1</span></div>
+              <div class="bottles">
+                <span class="bottle" style="--t:var(--amber)"></span><span class="bottle tall" style="--t:var(--pink)"></span><span class="bottle" style="--t:var(--purple)"></span><span class="bottle tall" style="--t:var(--teal)"></span>
+              </div>
+              <div class="chips"><em>coffrets</em><em>click &amp; collect</em><em>+150 références</em></div>
+            </div>
+          </div>
+          <div class="project-text">
+            <p class="fn">e-commerce <span class="status"><span class="pulse" aria-hidden="true"></span>projet en cours</span></p>
+            <h3>Refonte d'une boutique en ligne</h3>
+            <p>Parfumerie parisienne&nbsp;: design sur mesure pour plus de 150 références, site multilingue, coffrets, click &amp; collect.</p>
+          </div>
         </article>
-        <article class="card">
-          <p class="fn">application</p>
-          <h3>Suivi de stock et de ventes</h3>
-          <p>Import-revente sans outil de suivi&nbsp;: chaque article suivi de l'achat à la vente, marges calculées, factures centralisées.</p>
+        <article class="project">
+          <div class="window" aria-hidden="true">
+            <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="name">stock · ventes</span></div>
+            <div class="art art-stock">
+              <span class="th"><i></i><i></i><i></i></span>
+              <span><i></i><b style="--w:72%"></b><em class="up"></em></span>
+              <span><i></i><b style="--w:48%"></b><em class="up"></em></span>
+              <span><i></i><b style="--w:86%"></b><em></em></span>
+            </div>
+          </div>
+          <div class="project-text">
+            <p class="fn">application</p>
+            <h3>Suivi de stock et de ventes</h3>
+            <p>Import-revente sans outil de suivi&nbsp;: chaque article suivi de l'achat à la vente, marges calculées, factures centralisées.</p>
+          </div>
         </article>
-        <article class="card">
-          <p class="fn">plateforme</p>
-          <h3>Catalogue de pièces en ligne</h3>
-          <p>Espace réservé, connexion par code reçu par e-mail, fiches avec photos et documents techniques.</p>
+        <article class="project">
+          <div class="window" aria-hidden="true">
+            <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span class="name">catalogue · espace réservé</span></div>
+            <div class="art art-code">
+              <svg class="ic big" aria-hidden="true"><use href="#i-lock"/></svg>
+              <span class="digits"><i>4</i><i>8</i><i>1</i><i>9</i><i></i><i></i></span>
+              <span class="hint"></span>
+            </div>
+          </div>
+          <div class="project-text">
+            <p class="fn">plateforme</p>
+            <h3>Catalogue de pièces en ligne</h3>
+            <p>Espace réservé, connexion par code reçu par e-mail, fiches avec photos et documents techniques.</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ============ SITES ============ -->
-  <section class="soft" id="sites">
+  <section class="soft" id="sites" data-file="sites.html">
     <div class="wrap">
-      <p class="label">// 02 — sites web</p>
       <h2>Des sites qui vous ressemblent et qui travaillent pour vous</h2>
       <p class="lead">Votre site est souvent le premier contact avec vos clients. Il doit inspirer confiance en quelques secondes, se lire parfaitement sur téléphone et mener le visiteur jusqu'à l'action&nbsp;: vous appeler, réserver ou acheter.</p>
 
-      <div class="grid g2">
-        <article class="card">
+      <div class="offers">
+        <article>
           <p class="fn">vitrine()</p>
           <h3>Site vitrine</h3>
           <p>Présenter votre activité clairement et être trouvé.</p>
-          <ul><li>Design sur mesure, adapté au mobile</li><li>Formulaire de contact, carte d'accès</li><li>Référencement naturel de base</li></ul>
+          <ul class="checks"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Design sur mesure, adapté au mobile</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Formulaire de contact, carte d'accès</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Référencement naturel de base</li></ul>
         </article>
-        <article class="card">
+        <article>
           <p class="fn">boutique()</p>
           <h3>Boutique en ligne</h3>
           <p>Vendre en ligne avec un parcours d'achat fluide.</p>
-          <ul><li>Catalogue, paiement sécurisé</li><li>Livraison, click &amp; collect, retrait</li><li>Shopify personnalisé ou 100&nbsp;% sur mesure</li></ul>
+          <ul class="checks"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Catalogue, paiement sécurisé</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Livraison, click &amp; collect, retrait</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Shopify personnalisé ou 100&nbsp;% sur mesure</li></ul>
         </article>
-        <article class="card">
+        <article>
           <p class="fn">espace_client()</p>
           <h3>Espaces clients &amp; catalogues</h3>
           <p>Donner à vos clients ou partenaires un accès réservé.</p>
-          <ul><li>Connexion sécurisée par code e-mail</li><li>Fiches avec photos et documents</li><li>Recherche, filtres, catégories</li></ul>
+          <ul class="checks"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Connexion sécurisée par code e-mail</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Fiches avec photos et documents</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Recherche, filtres, catégories</li></ul>
         </article>
-        <article class="card">
+        <article>
           <p class="fn">refonte()</p>
           <h3>Refonte de site existant</h3>
           <p>Moderniser un site qui ne vous représente plus.</p>
-          <ul><li>Nouveau design et navigation repensée</li><li>Contenus et fiches produits réécrits</li><li>Référencement Google préservé</li></ul>
+          <ul class="checks"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Nouveau design et navigation repensée</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Contenus et fiches produits réécrits</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Référencement Google préservé</li></ul>
         </article>
       </div>
 
@@ -151,11 +257,11 @@
         <table>
           <thead><tr><th scope="col"><span class="visually-hidden">Critère</span></th><th scope="col">Shopify personnalisé</th><th scope="col">Développement sur mesure</th></tr></thead>
           <tbody>
-            <tr><td>Idéal pour</td><td>Une boutique classique que vous gérez au quotidien en autonomie</td><td>Un projet qui sort du cadre&nbsp;: parcours d'achat ou fonctions spécifiques</td></tr>
-            <tr><td>Gestion</td><td>Interface Shopify, simple et complète</td><td>Espace d'administration conçu pour vos besoins</td></tr>
-            <tr><td>Design</td><td>Thème entièrement personnalisé</td><td>Totalement libre</td></tr>
-            <tr><td>Coûts récurrents</td><td>Abonnement Shopify mensuel</td><td>Hébergement seul, généralement plus léger</td></tr>
-            <tr><td>Évolutions</td><td>Applications Shopify et développements dédiés</td><td>Tout est possible, ajouté à la demande</td></tr>
+            <tr><th scope="row">Idéal pour</th><td>Une boutique classique que vous gérez au quotidien en autonomie</td><td>Un projet qui sort du cadre&nbsp;: parcours d'achat ou fonctions spécifiques</td></tr>
+            <tr><th scope="row">Gestion</th><td>Interface Shopify, simple et complète</td><td>Espace d'administration conçu pour vos besoins</td></tr>
+            <tr><th scope="row">Design</th><td>Thème entièrement personnalisé</td><td>Totalement libre</td></tr>
+            <tr><th scope="row">Coûts récurrents</th><td>Abonnement Shopify mensuel</td><td>Hébergement seul, généralement plus léger</td></tr>
+            <tr><th scope="row">Évolutions</th><td>Applications Shopify et développements dédiés</td><td>Tout est possible, ajouté à la demande</td></tr>
           </tbody>
         </table>
       </div>
@@ -168,76 +274,84 @@
   </section>
 
   <!-- ============ APPLICATIONS ============ -->
-  <section id="applications">
+  <section id="applications" data-file="applications.ts">
     <div class="wrap">
-      <p class="label">// 03 — applications sur mesure</p>
       <h2>Une application pensée pour votre métier</h2>
       <p class="lead">Un logiciel standard vous oblige à changer vos habitudes&nbsp;; un tableau Excel finit toujours par déborder. Une application sur mesure fait exactement ce dont vous avez besoin, ni plus ni moins. Quelques exemples parmi d'autres&nbsp;:</p>
 
-      <div class="grid g4">
-        <article class="card"><p class="fn">commerce</p><p>Stock, achats et ventes, calcul automatique des marges, factures, export pour le comptable.</p></article>
-        <article class="card"><p class="fn">restauration</p><p>Réservations, menu QR code et commande à table, planning du personnel et des extras.</p></article>
-        <article class="card"><p class="fn">artisans_btp</p><p>Devis et factures, suivi des chantiers, photos avant / après, historique client.</p></article>
-        <article class="card"><p class="fn">services</p><p>Prise de rendez-vous en ligne, fiches clients, rappels automatiques par e-mail ou SMS.</p></article>
-        <article class="card"><p class="fn">associations</p><p>Adhérents, cotisations, événements et inscriptions, communication avec les membres.</p></article>
-        <article class="card"><p class="fn">outils_internes</p><p>Demandes de congés, suivi d'interventions, inventaire du matériel, gestion des accès.</p></article>
-        <article class="card"><p class="fn">tableaux_de_bord</p><p>Vos chiffres clés en un coup d'œil&nbsp;: ventes, marges, activité, objectifs.</p></article>
-        <article class="card"><p class="fn">automatisations</p><p>Supprimer les tâches répétitives&nbsp;: relances, exports, envois de documents, synchronisations.</p></article>
+      <div class="terminal">
+        <div class="window-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="name">metiers/</span></div>
+        <ul class="ls">
+          <li><p class="fn">commerce</p><p>Stock, achats et ventes, calcul automatique des marges, factures, export pour le comptable.</p></li>
+          <li><p class="fn">restauration</p><p>Réservations, menu QR code et commande à table, planning du personnel et des extras.</p></li>
+          <li><p class="fn">artisans_btp</p><p>Devis et factures, suivi des chantiers, photos avant / après, historique client.</p></li>
+          <li><p class="fn">services</p><p>Prise de rendez-vous en ligne, fiches clients, rappels automatiques par e-mail ou SMS.</p></li>
+          <li><p class="fn">associations</p><p>Adhérents, cotisations, événements et inscriptions, communication avec les membres.</p></li>
+          <li><p class="fn">outils_internes</p><p>Demandes de congés, suivi d'interventions, inventaire du matériel, gestion des accès.</p></li>
+          <li><p class="fn">tableaux_de_bord</p><p>Vos chiffres clés en un coup d'œil&nbsp;: ventes, marges, activité, objectifs.</p></li>
+          <li><p class="fn">automatisations</p><p>Supprimer les tâches répétitives&nbsp;: relances, exports, envois de documents, synchronisations.</p></li>
+        </ul>
       </div>
 
       <h3 class="subhead">Ce que votre application peut inclure</h3>
-      <div class="grid g3" style="margin-top:20px">
-        <article class="card"><h3>Ordinateur &amp; téléphone</h3><p>Une seule application, utilisable partout.</p></article>
-        <article class="card"><h3>Accès sécurisé</h3><p>Comptes utilisateurs et droits selon les rôles.</p></article>
-        <article class="card"><h3>Fichiers &amp; photos</h3><p>Dépôt, consultation et téléchargement de documents.</p></article>
-        <article class="card"><h3>Exports Excel &amp; PDF</h3><p>Pour votre comptable ou vos partenaires.</p></article>
-        <article class="card"><h3>Notifications</h3><p>E-mails automatiques au bon moment.</p></article>
-        <article class="card"><h3>Évolutive</h3><p>On démarre simple, on ajoute au fil de l'eau.</p></article>
-      </div>
+      <ul class="features">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-devices"/></svg><div><h4>Ordinateur &amp; téléphone</h4><p>Une seule application, utilisable partout.</p></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg><div><h4>Accès sécurisé</h4><p>Comptes utilisateurs et droits selon les rôles.</p></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><div><h4>Fichiers &amp; photos</h4><p>Dépôt, consultation et téléchargement de documents.</p></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-export"/></svg><div><h4>Exports Excel &amp; PDF</h4><p>Pour votre comptable ou vos partenaires.</p></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg><div><h4>Notifications</h4><p>E-mails automatiques au bon moment.</p></div></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-grow"/></svg><div><h4>Évolutive</h4><p>On démarre simple, on ajoute au fil de l'eau.</p></div></li>
+      </ul>
 
       <div class="callout">
-        <span class="q" aria-hidden="true">?</span>
         <p>Votre métier n'est pas dans la liste&nbsp;? <em>C'est justement le principe du sur mesure.</em> Racontez-moi comment vous travaillez, on part de là.</p>
+        <a class="btn btn-primary" href="#contact">Me raconter votre métier <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- ============ MÉTHODE ============ -->
-  <section class="soft" id="methode">
+  <section class="soft" id="methode" data-file="methode.md">
     <div class="wrap">
-      <p class="label">// 04 — méthode</p>
       <h2>Comment on travaille ensemble</h2>
       <p class="lead">Un projet découpé en étapes claires, validées avec vous au fur et à mesure. Pas d'effet tunnel, pas de surprise à la livraison.</p>
 
       <ol class="steps">
-        <li><span class="num" aria-hidden="true">01</span><div><h3>Échange &amp; brief <span class="pill">gratuit</span></h3><p>Sans engagement&nbsp;: on parle de votre activité, de vos objectifs, de vos exemples et de vos contraintes de délai et de budget.</p></div></li>
-        <li><span class="num" aria-hidden="true">02</span><div><h3>Proposition &amp; chiffrage</h3><p>Je vous propose la solution adaptée, découpée en blocs de travail, avec un devis et un planning clairs.</p></div></li>
-        <li><span class="num" aria-hidden="true">03</span><div><h3>Maquette &amp; direction visuelle</h3><p>Vous voyez le rendu avant le développement, et on ajuste ensemble jusqu'à ce qu'il vous ressemble.</p></div></li>
-        <li><span class="num" aria-hidden="true">04</span><div><h3>Développement par étapes</h3><p>Chaque bloc est construit puis présenté. Vous suivez l'avancement et pouvez réorienter à tout moment.</p></div></li>
-        <li><span class="num" aria-hidden="true">05</span><div><h3>Mise en ligne &amp; prise en main</h3><p>Nom de domaine, hébergement, tests, puis une prise en main expliquée pour que vous soyez autonome.</p></div></li>
-        <li><span class="num" aria-hidden="true">06</span><div><h3>Suivi &amp; évolutions</h3><p>Corrections, nouvelles fonctions, maintenance&nbsp;: votre outil continue de grandir avec votre activité.</p></div></li>
+        <li><span class="num">01</span><div><h3>Échange &amp; brief <span class="pill">gratuit</span></h3><p>Sans engagement&nbsp;: on parle de votre activité, de vos objectifs, de vos exemples et de vos contraintes de délai et de budget.</p></div></li>
+        <li><span class="num">02</span><div><h3>Proposition &amp; chiffrage</h3><p>Je vous propose la solution adaptée, découpée en blocs de travail, avec un devis et un planning clairs.</p></div></li>
+        <li><span class="num">03</span><div><h3>Maquette &amp; direction visuelle</h3><p>Vous voyez le rendu avant le développement, et on ajuste ensemble jusqu'à ce qu'il vous ressemble.</p></div></li>
+        <li><span class="num">04</span><div><h3>Développement par étapes</h3><p>Chaque bloc est construit puis présenté. Vous suivez l'avancement et pouvez réorienter à tout moment.</p></div></li>
+        <li><span class="num">05</span><div><h3>Mise en ligne &amp; prise en main</h3><p>Nom de domaine, hébergement, tests, puis une prise en main expliquée pour que vous soyez autonome.</p></div></li>
+        <li><span class="num">06</span><div><h3>Suivi &amp; évolutions</h3><p>Corrections, nouvelles fonctions, maintenance&nbsp;: votre outil continue de grandir avec votre activité.</p></div></li>
       </ol>
 
-      <h3 class="subhead">Technologies</h3>
-      <ul class="tags">
-        <li>Next.js</li><li>React</li><li>PostgreSQL</li><li>Prisma</li><li>Shopify</li><li>Vercel</li><li>Cloudflare R2</li><li>GitHub</li><li>Développement assisté par IA</li><li class="more">+ d'autres, en évolution constante</li>
-      </ul>
-      <p class="note">Pas besoin de connaître ces noms&nbsp;: ce sont des outils modernes et reconnus, utilisés par de grandes entreprises, choisis pour leur fiabilité, leur sécurité et des coûts d'hébergement maîtrisés.</p>
-
-      <h3 class="subhead">En complément</h3>
-      <div class="grid g2" style="margin-top:20px">
-        <article class="card"><p class="fn">identité_visuelle()</p><p>Logo, charte graphique, cartes de visite, supports imprimés et visuels pour les réseaux sociaux, pour une image cohérente partout.</p></article>
-        <article class="card"><p class="fn">support_it()</p><p>Dépannage de postes et de serveurs, réseau et Wi-Fi pro, sauvegardes. Certifié HPE Aruba Networking (ACNT).</p></article>
+      <div class="duo">
+        <div>
+          <h3 class="subhead">Technologies</h3>
+          <ul class="tags">
+            <li>Next.js</li><li>React</li><li>PostgreSQL</li><li>Prisma</li><li>Shopify</li><li>Vercel</li><li>Cloudflare R2</li><li>GitHub</li><li>Développement assisté par IA</li><li class="more">+ d'autres, en évolution constante</li>
+          </ul>
+          <p class="note">Pas besoin de connaître ces noms&nbsp;: ce sont des outils modernes et reconnus, utilisés par de grandes entreprises, choisis pour leur fiabilité, leur sécurité et des coûts d'hébergement maîtrisés.</p>
+        </div>
+        <div>
+          <h3 class="subhead">En complément</h3>
+          <ul class="extras">
+            <li><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><div><p class="fn">identité_visuelle()</p><p>Logo, charte graphique, cartes de visite, supports imprimés et visuels pour les réseaux sociaux, pour une image cohérente partout.</p></div></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-server"/></svg><div><p class="fn">support_it()</p><p>Dépannage de postes et de serveurs, réseau et Wi-Fi pro, sauvegardes. Certifié HPE Aruba Networking (ACNT).</p></div></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="questions">
-    <div class="wrap">
-      <p class="label">// 05 — questions fréquentes</p>
-      <h2>Les questions qu'on me pose souvent</h2>
-      <p class="lead">Lancer un site ou une application soulève toujours les mêmes questions. Voici les réponses, simplement.</p>
+  <section id="questions" data-file="questions.md">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2>Les questions qu'on me pose souvent</h2>
+        <p class="lead">Lancer un site ou une application soulève toujours les mêmes questions. Voici les réponses, simplement.</p>
+        <p class="ask">Une autre question&nbsp;? <a href="tel:+33768717504">Appelez-moi</a> ou <a href="mailto:ravignon.jose.pro@hotmail.com?subject=Une%20question">écrivez-moi</a>.</p>
+      </div>
 
       <div class="faq">
         <details name="faq" open>
@@ -273,34 +387,33 @@
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section class="contact dark" id="contact">
+  <section class="contact" id="contact" data-file="contact.js">
     <div class="wrap">
-      <div>
-        <p class="label">// et maintenant&nbsp;?</p>
+      <div class="contact-copy">
         <h2>Parlons de <em>votre projet.</em></h2>
         <p class="lead">Écrivez-moi ou appelez-moi&nbsp;: je vous réponds sous 48&nbsp;h. Le premier échange est gratuit et sans engagement&nbsp;: on parle de votre besoin et je vous dis concrètement comment je m'y prendrais. Pour aller plus vite, pensez à préparer&nbsp;:</p>
         <ul class="prep">
-          <li>Ce que vous voulez créer ou améliorer, et pourquoi</li>
-          <li>Des exemples de sites ou d'outils que vous aimez</li>
-          <li>Votre délai et votre budget indicatif</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>Ce que vous voulez créer ou améliorer, et pourquoi</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>Des exemples de sites ou d'outils que vous aimez</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>Votre délai et votre budget indicatif</li>
         </ul>
         <div class="actions">
-          <a class="btn btn-primary" href="tel:+33768717504">Appeler le 07&nbsp;68&nbsp;71&nbsp;75&nbsp;04</a>
-          <a class="btn btn-ghost" href="mailto:ravignon.jose.pro@hotmail.com?subject=Mon%20projet">Envoyer un e-mail</a>
+          <a class="btn btn-primary" href="tel:+33768717504"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Appeler le 07&nbsp;68&nbsp;71&nbsp;75&nbsp;04</a>
+          <a class="btn btn-ghost" href="mailto:ravignon.jose.pro@hotmail.com?subject=Mon%20projet"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Envoyer un e-mail</a>
         </div>
       </div>
 
-      <div>
+      <div class="contact-side">
         <figure class="editor">
           <div class="editor-tabs" aria-hidden="true"><span>projet.js</span><span class="on">contact.js</span></div>
-          <pre tabindex="0"><code><span class="l"><span class="k">export const</span> contact = {</span><span class="l">  <span class="p">nom</span>: <span class="s">"José Ravignon"</span>,</span><span class="l">  <span class="p">tel</span>: <a href="tel:+33768717504">"07 68 71 75 04"</a>,</span><span class="l">  <span class="p">mail</span>: <a href="mailto:ravignon.jose.pro@hotmail.com">"ravignon.jose.pro@hotmail.com"</a>,</span><span class="l">  <span class="p">zone</span>: <span class="s">"Seine-et-Marne · Île-de-France"</span>,</span><span class="l">  <span class="p">format</span>: <span class="s">"sur site ou à distance"</span>,</span><span class="l">  <span class="p">réponse</span>: <span class="s">"sous 48 h"</span>,</span><span class="l">};</span></code></pre>
+          <pre tabindex="0" aria-label="Coordonnées"><code><span class="l"><span class="k">export const</span> contact = {</span><span class="l">  <span class="p">nom</span>: <span class="s">"José Ravignon"</span>,</span><span class="l">  <span class="p">tel</span>: <a href="tel:+33768717504">"07 68 71 75 04"</a>,</span><span class="l">  <span class="p">mail</span>: <a href="mailto:ravignon.jose.pro@hotmail.com">"ravignon.jose.pro@hotmail.com"</a>,</span><span class="l">  <span class="p">zone</span>: <span class="s">"Seine-et-Marne · Île-de-France"</span>,</span><span class="l">  <span class="p">format</span>: <span class="s">"sur site ou à distance"</span>,</span><span class="l">  <span class="p">réponse</span>: <span class="s">"sous 48 h"</span>,</span><span class="l">};</span></code></pre>
         </figure>
 
-        <p class="commit-title">// mes engagements</p>
+        <h3 class="commit-title">Mes engagements</h3>
         <ul class="commits">
-          <li><p class="mono">✓ réactif</p><strong>Réponse sous 48&nbsp;h</strong></li>
-          <li><p class="mono">✓ sans risque</p><strong>Premier échange gratuit et sans engagement</strong></li>
-          <li><p class="mono">✓ transparent</p><strong>Votre site et son code vous appartiennent</strong></li>
+          <li><p class="mono"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>réactif</p><strong>Réponse sous 48&nbsp;h</strong></li>
+          <li><p class="mono"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>sans risque</p><strong>Premier échange gratuit et sans engagement</strong></li>
+          <li><p class="mono"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>transparent</p><strong>Votre site et son code vous appartiennent</strong></li>
         </ul>
       </div>
     </div>
@@ -310,7 +423,7 @@
 
 <footer class="statusbar">
   <div class="wrap">
-    <span>José Ravignon</span>
+    <span class="sb-left"><span class="sb-branch">José Ravignon</span><span class="sb-file" aria-hidden="true">projet.js</span></span>
     <span>dev &amp; designer · freelance · Seine-et-Marne</span>
   </div>
 </footer>
