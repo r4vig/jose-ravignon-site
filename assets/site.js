@@ -60,7 +60,7 @@
     auto = setInterval(() => {
       const cur = order.indexOf(body.dataset.show);
       show(order[(cur + 1) % order.length]);
-    }, 5200);
+    }, 7000);
   };
 
   tabs.forEach((t, i) => {
@@ -76,6 +76,12 @@
   });
 
   const stage = document.querySelector(".stage");
+  if (stage) {
+    stage.addEventListener("pointerenter", stopAuto);
+    stage.addEventListener("focusin", stopAuto);
+    stage.addEventListener("pointerleave", () => { if (!stage.contains(document.activeElement)) startAuto(); });
+    stage.addEventListener("focusout", (e) => { if (!stage.contains(e.relatedTarget) && !stage.matches(":hover")) startAuto(); });
+  }
   if (stage && "IntersectionObserver" in window) {
     new IntersectionObserver(([e]) => (e.isIntersecting ? startAuto() : stopAuto()), { threshold: 0.4 }).observe(stage);
     document.addEventListener("visibilitychange", () => (document.hidden ? stopAuto() : startAuto()));
